@@ -14,7 +14,6 @@ FROM node:20-alpine
 RUN addgroup -g 1001 -S nonrootgroup && adduser -u 1001 -S nonroot -G nonrootgroup
 
 COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
 ENV HOSTNAME=0.0.0.0
 ENV NODE_ENV production
 
