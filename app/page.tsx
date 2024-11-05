@@ -1,5 +1,3 @@
-'use server'
-
 import React from 'react'
 import { getFeedData, getFeedPosts } from '@/lib/bluesky';
 import Timeline from '@/app/components/Timeline';
