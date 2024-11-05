@@ -4,6 +4,7 @@ import React from 'react'
 import { getFeedData, getFeedPosts } from '@/lib/bluesky';
 import Timeline from '@/app/components/Timeline';
 
+export const dynamic = 'force-dynamic';
 
 export default async function Component() {
   const data = await getFeedData();
