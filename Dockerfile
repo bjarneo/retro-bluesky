@@ -14,6 +14,8 @@ RUN npm run build
 # production stage
 FROM node:20-alpine
 
+RUN apk update && apk add wget
+
 WORKDIR /app
 
 RUN addgroup -g 1001 -S nonrootgroup && adduser -u 1001 -S nonroot -G nonrootgroup
