@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Retro Bluesky
+
+A retro-styled Bluesky social feed viewer with a nostalgic interface. This application provides a unique way to view Bluesky's "What's Hot" feed with a retro computer aesthetic.
+
+![Demo](1.png)
+![Demo](2.png)
+
+
+## Features
+
+- Retro-styled UI with custom RetroTopaz font
+- Dark/Light mode toggle
+- Real-time feed updates
+- Responsive design
+- Docker support
+- Caching system for API requests
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- @atproto/api for Bluesky integration
+- Docker
+
+## Prerequisites
+
+- Node.js 20 or higher
+- npm or yarn
+- A Bluesky account
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/bjarneo/retro-bluesky.git
+cd retro-bluesky
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file in the root directory with the following content:
+```bash
+BLUESKY_USERNAME=your.handle.bsky.social
+BLUESKY_PASSWORD=your-app-password
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Note: You'll need to generate an app-specific password from your Bluesky account settings.
 
-## Learn More
+4. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docker Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To run the application using Docker:
 
-## Deploy on Vercel
+```bash
+# Build the image
+docker build -t retro-bluesky .
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Run the container
+docker run -p 3000:3000 --env-file .env.local retro-bluesky
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+The project follows a standard Next.js 14 structure with the following key directories:
+
+- `/app`: Main application components and pages
+- `/components`: Reusable UI components
+- `/lib`: Utility functions and API client
+- `/public`: Static assets
+
+## Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```env
+# Bluesky Authentication
+BLUESKY_USERNAME=your.handle.bsky.social
+BLUESKY_PASSWORD=your-app-password
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License
+
+## Credits
+
+Created by [dothash](https://dothash.win)

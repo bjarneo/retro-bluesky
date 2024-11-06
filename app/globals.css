@@ -76,3 +76,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'RetroTopaz';
+  src: url('https://fonts.cdnfonts.com/s/66846/Topaz_a500.woff') format('woff');
+}
+
+.retro-font {
+  font-family: 'RetroTopaz', monospace;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}

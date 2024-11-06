@@ -1,5 +1,5 @@
 'use client'
-import React, { useState  } from 'react'
+import React, { useState } from 'react'
 import { User, Moon, Sun } from 'lucide-react'
 import { FeedInfo } from '@/app/components/FeedInfo';
 import { BlueskyFeedData } from '@/lib/types';
@@ -7,9 +7,8 @@ import BlueskyLogo from './BlueskyLogo'
 
 
 export default function Timeline({ data, feed }: { data: BlueskyFeedData, feed: any[] }) {
-
   const { creator, displayName, description, avatar, likeCount, isOnline } = data;
-    
+
   const [darkMode, setDarkMode] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
 
@@ -47,10 +46,10 @@ export default function Timeline({ data, feed }: { data: BlueskyFeedData, feed: 
           <div className={`p-4 ${darkMode ? 'bg-[#000066] text-[#ffffff]' : 'bg-[#dedede]'} border-b-4 border-[#000]`}>
             <h2 className="retro-font text-lg mb-2">Creator of this page</h2>
             <p className="retro-font">
-              <a href="https://dothash.win" 
-                 className="hover:underline" 
-                 target="_blank" 
-                 rel="noopener noreferrer">
+              <a href="https://dothash.win"
+                className="hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">
                 Display Name: dothash
               </a>
             </p>
@@ -58,7 +57,7 @@ export default function Timeline({ data, feed }: { data: BlueskyFeedData, feed: 
           </div>
         )}
         <div className="p-4">
-            <FeedInfo
+          <FeedInfo
             creator={creator}
             displayName={displayName}
             description={description}
@@ -66,30 +65,30 @@ export default function Timeline({ data, feed }: { data: BlueskyFeedData, feed: 
             likeCount={likeCount}
             isOnline={isOnline}
           />
-          
+
           {feed.map((post) => (
-        <div key={post.post.uri} className="border-2 border-[#000] shadow-[4px_4px_0_#000] p-4 mb-4">
-          <div className="flex items-center gap-2 mb-2">
-            <div>
-              <div className="font-bold">{post.post.author.displayName}</div>
-              <div className="text-sm">
-                <a 
-                  href={`https://bsky.app/profile/${post.post.author.handle}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  @{post.post.author.handle}
-                </a>
+            <div key={post.post.uri} className="border-2 border-[#000] shadow-[4px_4px_0_#000] p-4 mb-4">
+              <div className="flex items-center gap-2 mb-2">
+                <div>
+                  <div className="font-bold">{post.post.author.displayName}</div>
+                  <div className="text-sm">
+                    <a
+                      href={`https://bsky.app/profile/${post.post.author.handle}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      @{post.post.author.handle}
+                    </a>
+                  </div>
+                </div>
               </div>
+              <p className="mb-2 break-words whitespace-pre-wrap">
+                {post.post.record.text}
+              </p>
             </div>
-          </div>
-          <p className="mb-2 break-words whitespace-pre-wrap">
-            {post.post.record.text}
-          </p>
+          ))}
         </div>
-      ))}
-      </div>
       </div>
       <style jsx global>{`
         @font-face {
